@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import config.Configuration;
+import servlet.IndexServlet;
 
 public class IndexService {
 	
@@ -20,7 +21,7 @@ public class IndexService {
 	}
 	
 	public String generarToken() throws IOException {
-		
+		IndexServlet.connectProxy();
 		String auth = getAuthotization();
 				
 		URL url = new URL(Configuration.URL_API_AUTHORIZATION);
@@ -28,7 +29,7 @@ public class IndexService {
 		con.setRequestMethod("POST");
 		con.setRequestProperty("Authorization", "Basic "+auth);
 		System.out.println("con: " + con.getResponseMessage());
-		System.out.println("con: " + auth);
+		System.out.println("con: " + auth); 
 		
 		InputStreamReader in = new InputStreamReader(con.getInputStream());
 		BufferedReader br = new BufferedReader(in);
@@ -39,7 +40,7 @@ public class IndexService {
 		}
 		in.close();
 		con.disconnect();
-		
+		IndexServlet.disconnectProxy();
 		return buffer.toString();
 	}
 	

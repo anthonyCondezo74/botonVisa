@@ -27,8 +27,7 @@ String purchase = purchaseNumber.toString();
 		data-sessiontoken="<%=sess%>"
 		data-merchantid="<%=merchantId%>"
 		data-channel="web"
-		data-merchantname="Prueba Java"
-		data-purchasenumber="<%=purchase%>"
+		data-merchantname="Prueba Java"	data-purchasenumber="<%=purchase%>"
 		data-cardholdername="<%=nombre%>"
 		data-cardholderlastname="<%=apellido%>"
 		data-cardholderemail="<%=email%>"
@@ -36,6 +35,7 @@ String purchase = purchaseNumber.toString();
 		data-timeouturl="http://127.0.0.1:8080/demo_boton/"
 	>
 	</script>
+
 </form>
 </body>
 </html>
